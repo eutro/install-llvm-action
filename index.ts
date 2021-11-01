@@ -10,6 +10,7 @@ export interface Options {
   forceVersion: boolean,
   ubuntuVersion?: string,
   cached: boolean,
+  url?: string,
 }
 
 //================================================
@@ -229,6 +230,9 @@ function getWin32Url(version: string, options: Options): string | null {
 
 /** Gets an LLVM download URL. */
 function getUrl(platform: string, version: string, options: Options): string | null {
+  if (options.url) {
+    return options.url.replace(/\${version}/g, version);
+  }
   switch (platform) {
     case "darwin":
       return getDarwinUrl(version, options);

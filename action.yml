@@ -21,6 +21,9 @@ inputs:
   cached:
     description: "Whether the LLVM and Clang binaries were cached."
     required: false
+  url:
+    description: "An alternate URL to fetch the archive from."
+    required: false
 
 outputs:
   version:
